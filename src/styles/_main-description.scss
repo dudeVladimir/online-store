@@ -1,0 +1,29 @@
+$background-gradient: linear-gradient(
+  90deg,
+  #2196f3 0%,
+  #1e87de 25%,
+  #1765af 75%,
+  #14569a 100%
+);
+
+.main__description {
+  display: flex;
+  align-items: center;
+  background: $background-gradient;
+  margin-top: 10px;
+  padding: 20px 100px;
+
+  img {
+    max-height: 90px;
+  }
+  span {
+    color: #fff;
+    padding-left: 20px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .main__description {
+    padding: 20px;
+  }
+}
