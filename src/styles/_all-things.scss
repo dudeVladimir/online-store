@@ -10,25 +10,32 @@ $blue-color: #2196f3;
 
     li {
       display: flex;
+      flex-direction: column;
       align-items: center;
       border-radius: 15px;
       transition: all 0.22s ease-in;
       padding: 10px;
       border: 1px solid #5e5e5e1a;
       cursor: pointer;
+      justify-content: space-around;
 
       &:hover {
         background: #5e5e5e1a;
       }
 
       img {
-        max-height: 90px;
+        height: 150px;
+        width: 150px;
+        object-fit: cover;
+        margin-bottom: 10px;
       }
 
       div {
+        width: 100%;
         padding-left: 10px;
         display: flex;
         flex-direction: column;
+        padding: 0;
 
         h3 {
           margin: 0;
@@ -37,17 +44,19 @@ $blue-color: #2196f3;
           border-bottom: 1px solid #5e5e5e;
         }
 
+        .thing__description {
+          color: #5e5e5e;
+          margin-bottom: 10px;
+        }
+
         div {
+          width: 100%;
           display: flex;
           flex-direction: row;
-          justify-content: space-between;
-          padding: 0;
+          justify-content: space-around;
           margin-top: 10px;
           align-items: center;
-
-          .thing__description {
-            color: #5e5e5e;
-          }
+          margin: 0;
 
           .thing__price {
             color: $blue-color;

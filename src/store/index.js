@@ -1,45 +1,12 @@
 import { createStore } from 'vuex'
+import axios from 'axios'
+import thing from './modules/thing.module'
+import category from './modules/category.module'
 
 export default createStore({
   state() {
     return {
-      things: [
-        {
-          id: 1,
-          title: 'Vue',
-          description:
-            'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit dolor fuga quos consectetur nemo quae fugit repellat.',
-          price: 456,
-        },
-        {
-          id: 2,
-          title: 'Vue',
-          description:
-            'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit dolor fuga quos consectetur nemo quae fugit repellat.',
-          price: 456,
-        },
-        {
-          id: 3,
-          title: 'Vue',
-          description:
-            'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit dolor fuga quos consectetur nemo quae fugit repellat.',
-          price: 456,
-        },
-        {
-          id: 4,
-          title: 'Vue',
-          description:
-            'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit dolor fuga quos consectetur nemo quae fugit repellat.',
-          price: 456,
-        },
-        {
-          id: 5,
-          title: 'Vue',
-          description:
-            'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit dolor fuga quos consectetur nemo quae fugit repellat.',
-          price: 456,
-        },
-      ],
+      things: [],
     }
   },
   getters: {
@@ -47,7 +14,19 @@ export default createStore({
       return state.things
     },
   },
-  mutations: {},
-  actions: {},
-  modules: {},
+  mutations: {
+    setThings(state, things) {
+      state.things = things
+    },
+  },
+  actions: {
+    async loadThings({ commit }) {
+      const { data } = await axios.get('https://fakestoreapi.com/products')
+      commit('setThings', data)
+    },
+  },
+  modules: {
+    thing,
+    category,
+  },
 })

@@ -21,6 +21,11 @@ const routes = [
     name: 'acc',
     component: () => import('@/views/AccPage.vue'),
   },
+  {
+    path: '/:id',
+    name: 'thing',
+    component: () => import('@/views/ThingPage.vue'),
+  },
 ]
 
 const router = createRouter({

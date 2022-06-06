@@ -5,6 +5,7 @@
       { primary: type === 'primary' },
       { danger: type === 'danger' },
     ]"
+    @click.stop="$emit('clickHandler')"
   >
     {{ value }}
   </button>
@@ -12,6 +13,7 @@
 
 <script>
 export default {
+  emits: ['clickHandler'],
   props: {
     type: { type: String },
     value: { type: String, required: true },
