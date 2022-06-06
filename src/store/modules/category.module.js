@@ -1,4 +1,3 @@
-import store from '..'
 import axios from 'axios'
 
 export default {
@@ -6,11 +5,15 @@ export default {
   state() {
     return {
       categoryList: [],
+      selectedCategory: '',
     }
   },
   mutations: {
     setCategory(state, categoryList) {
       state.categoryList = categoryList
+    },
+    setSelectedCategory(state, selectedCategory) {
+      state.selectedCategory = selectedCategory
     },
   },
   actions: {
@@ -23,17 +26,26 @@ export default {
         data.map((e) => {
           let categoryImg
           if (e === 'electronics') {
-            categoryImg = '../assets/category/elec.png'
+            categoryImg = 'elec'
           } else if (e === 'jewelery') {
-            categoryImg = '../assets/category/jew.png'
+            categoryImg = 'jew'
           } else if (e === `men's clothing`) {
-            categoryImg = '../assets/category/men.png'
+            categoryImg = 'men'
           } else if (e === `women's clothing`) {
-            categoryImg = '../assets/category/women.png'
+            categoryImg = 'women'
+          } else {
+            return
           }
           return { name: e, categoryImg }
         })
       )
+    },
+    async loadByCategory({ commit }, payload) {
+      commit('setSelectedCategory', payload)
+      const { data } = await axios.get(
+        `https://fakestoreapi.com/products/category/${payload}`
+      )
+      commit('setThings', data, { root: true })
     },
   },
 }

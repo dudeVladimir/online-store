@@ -5,7 +5,7 @@
       <div>
         <h3>{{ t.title }}</h3>
         <span class="thing__description" v-if="showDescription">{{
-          t.description
+          maxLength(t.description)
         }}</span>
         <div>
           <AppButton
@@ -34,7 +34,17 @@ export default {
     const addToCart = (t) => {
       console.log(t)
     }
-    return { addToCart }
+    const maxLength = (text) => {
+      if (text.length >= 90) {
+        const arr = text.split('')
+        arr.splice(89)
+        return arr.join('') + '...'
+      } else {
+        return text
+      }
+    }
+
+    return { addToCart, maxLength }
   },
   components: { AppButton },
 }
