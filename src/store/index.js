@@ -1,9 +1,18 @@
-import { createStore } from 'vuex'
+import { createStore, createLogger } from 'vuex'
 import axios from 'axios'
 import thing from './modules/thing.module'
 import category from './modules/category.module'
+import auth from './modules/auth.module'
+import message from './modules/message.module'
+
+const plugins = []
+
+if (process.env.NODE_ENV === 'development') {
+  plugins.push(createLogger())
+}
 
 export default createStore({
+  plugins,
   state() {
     return {
       things: [],
@@ -28,5 +37,7 @@ export default createStore({
   modules: {
     thing,
     category,
+    auth,
+    message,
   },
 })

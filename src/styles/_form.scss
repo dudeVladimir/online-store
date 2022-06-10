@@ -1,0 +1,79 @@
+form {
+  .form-control {
+    position: relative;
+    margin-bottom: 10px;
+
+    label {
+      display: block;
+      margin-left: 3px;
+      margin-bottom: 2px;
+      font-weight: 300;
+    }
+
+    input {
+      width: 100%;
+      padding: 7px 10px;
+      border: 1px solid #5e5e5e;
+      border-radius: 10px;
+      background: #eee;
+      transition: all 0.13s ease-in-out;
+
+      &:hover {
+        background: #fff;
+      }
+
+      &:focus {
+        outline: 1px solid #5e5e5e;
+      }
+    }
+
+    small {
+      color: #e27d60;
+    }
+
+    .password__mask {
+      position: absolute;
+      position: absolute;
+      top: 27px;
+      right: 7px;
+      width: 19px;
+      height: 19px;
+      cursor: pointer;
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    &.danger {
+      input {
+        background: rgba(226, 125, 96, 0.1);
+        border-color: #e27d60;
+
+        &:hover {
+          background: rgba(226, 125, 96, 0.05);
+        }
+
+        &:focus {
+          outline: 1px solid #e27d60;
+        }
+      }
+    }
+  }
+}
+
+.auth-form {
+  max-width: 500px;
+  margin: 0 auto;
+  margin-top: 20px;
+
+  &__btn-box {
+    display: flex;
+    justify-content: space-around;
+
+    button {
+      min-width: 170px;
+    }
+  }
+}

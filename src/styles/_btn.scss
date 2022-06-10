@@ -8,6 +8,12 @@
   color: #fff;
   cursor: pointer;
 
+  &:disabled {
+    cursor: not-allowed;
+    background: rgba(94, 94, 94, 0.2) !important;
+    border: 1px solid #5e5e5e;
+  }
+
   &:hover {
     background: rgba(33, 150, 243, 0.8);
   }
@@ -20,6 +26,12 @@
   &.primary {
     background: rgb(65, 184, 131);
     color: #fff;
+
+    &:disabled {
+      cursor: not-allowed;
+      background: rgba(94, 94, 94, 0.2);
+      border: 1px solid #5e5e5e;
+    }
 
     &:hover {
       background: rgba(65, 184, 131, 0.8);
@@ -34,6 +46,12 @@
   &.danger {
     background: rgb(226, 125, 96);
     color: #fff;
+
+    &:disabled {
+      cursor: not-allowed;
+      background: rgba(94, 94, 94, 0.2);
+      border: 1px solid #5e5e5e;
+    }
 
     &:hover {
       background: rgba(226, 125, 96, 0.8);
