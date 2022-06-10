@@ -1,6 +1,10 @@
 $blue-color: #2196f3;
 
 .all-things {
+  .selected-category {
+    display: block;
+    margin-bottom: 10px;
+  }
   ul {
     margin: 0;
     padding: 0;

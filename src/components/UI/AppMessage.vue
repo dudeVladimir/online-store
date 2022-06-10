@@ -1,6 +1,6 @@
 <template>
   <div class="main__description">
-    <img src="../../assets/logo.png" />
+    <img src="../../assets/logo.png" alt="logo" />
     <span
       >Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit repellat
       necessitatibus quaerat, accusantium atque numquam, facilis sint quod

@@ -38,6 +38,18 @@ small {
   }
 }
 
+@media (max-width: 400px) {
+  body {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 300px) {
+  body {
+    font-size: 11px;
+  }
+}
+
 @import 'header';
 @import 'main-description';
 @import 'all-things';

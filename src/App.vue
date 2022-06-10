@@ -13,6 +13,7 @@
 <script>
 import TheNavbar from './components/TheNavbar.vue'
 import AppMessage from './components/UI/AppMessage.vue'
+
 export default {
   components: { TheNavbar, AppMessage },
 }

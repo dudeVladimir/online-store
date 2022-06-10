@@ -1,40 +1,45 @@
 $blue-color: #2196f3;
 $gray-color: #5e5e5e;
 
-.header__nav {
-  padding: 0 25px;
+header {
   height: 60px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: $blue-color;
-  color: white;
   position: fixed;
-  width: 100%;
   top: 0;
   left: 0;
-  box-shadow: 0 2px 10px 8px rgba(#000000, 0.1);
+  width: 100%;
 
-  h3 {
-    margin: 0;
-  }
-
-  div {
+  .header__nav {
+    padding: 0 25px;
+    height: 100%;
     display: flex;
     align-items: center;
-  }
-
-  a {
-    margin-left: 10px;
+    justify-content: space-between;
+    background: $blue-color;
     color: white;
-    text-decoration: none;
 
-    &.active {
-      border-bottom: 1px solid #eee;
+    box-shadow: 0 2px 10px 8px rgba(#000000, 0.1);
+
+    h3 {
+      margin: 0;
     }
 
-    &:hover {
-      color: rgba(255, 255, 255, 0.7);
+    div {
+      display: flex;
+      align-items: center;
+    }
+
+    a {
+      margin-left: 10px;
+      color: white;
+      text-decoration: none;
+
+      &.active {
+        border-bottom: 1px solid #eee;
+      }
+
+      &:hover {
+        color: rgba(255, 255, 255, 0.7);
+      }
     }
   }
 }
