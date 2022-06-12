@@ -1,26 +1,14 @@
 <template>
   <AppPageTitle title="Аккаунт" />
-  <AppButton type="danger" value="Выйти" @clickHandler="logout" />
+  <AppAcc />
 </template>
 
 <script>
 import AppPageTitle from '@/components/UI/AppPageTitle.vue'
-import AppButton from '@/components/UI/AppButton.vue'
-import { useRouter } from 'vue-router'
-import { useStore } from 'vuex'
+import AppAcc from '@/components/AppAcc.vue'
 
 export default {
-  setup() {
-    const router = useRouter()
-    const store = useStore()
-
-    return {
-      logout: () => {
-        store.commit('auth/logout')
-        router.push('/')
-      },
-    }
-  },
-  components: { AppPageTitle, AppButton },
+  setup() {},
+  components: { AppPageTitle, AppAcc },
 }
 </script>

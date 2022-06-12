@@ -11,7 +11,7 @@
           <AppButton
             value="В корзину"
             type="primary"
-            @clickHandler="addToCart(t)"
+            @clickHandler="$store.commit('cart/addItem', t)"
             v-if="showBtn"
           />
           <span class="thing__price">{{ t.price }} $</span>
@@ -22,6 +22,7 @@
 </template>
 
 <script>
+import { useStore } from 'vuex'
 import AppButton from './UI/AppButton.vue'
 
 export default {
@@ -31,9 +32,8 @@ export default {
     showBtn: { type: Boolean },
   },
   setup() {
-    const addToCart = (t) => {
-      console.log(t)
-    }
+    const store = useStore()
+
     const maxLength = (text) => {
       if (text.length >= 90) {
         const arr = text.split('')
@@ -44,7 +44,7 @@ export default {
       }
     }
 
-    return { addToCart, maxLength }
+    return { maxLength }
   },
   components: { AppButton },
 }

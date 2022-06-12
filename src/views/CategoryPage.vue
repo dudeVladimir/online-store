@@ -5,7 +5,12 @@
 
   <div class="all-things" v-if="$store.state.category.selectedCategory !== ''">
     <app-loader v-if="loading" />
-    <app-things v-else :things="things" :showBtn="true" />
+    <app-things
+      v-else
+      :things="things"
+      :showBtn="true"
+      :showDescription="true"
+    />
   </div>
 </template>
 

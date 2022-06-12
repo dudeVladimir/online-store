@@ -13,9 +13,7 @@ body {
 }
 
 main {
-  > div {
-    padding: 10px 20px;
-  }
+  padding: 10px 20px;
 }
 
 ul {
@@ -58,3 +56,4 @@ small {
 @import 'thing';
 @import 'category';
 @import 'form';
+@import 'cart';

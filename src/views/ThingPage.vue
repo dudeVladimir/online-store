@@ -12,7 +12,11 @@
         <span>{{ thing.description }}</span>
       </div>
       <div class="thing-by-id__footer">
-        <app-button type="primary" value="В корзину" />
+        <app-button
+          type="primary"
+          value="В корзину"
+          @clickHandler="$store.commit('cart/addItem', thing)"
+        />
         <a href="#" class="to" @click.prevent="$router.go(-1)">Назад</a>
         <span class="thing-by-id__price">{{ thing.price }} $</span>
       </div>

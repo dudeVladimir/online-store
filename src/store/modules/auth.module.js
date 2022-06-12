@@ -7,6 +7,7 @@ export default {
   state() {
     return {
       token: localStorage.getItem('jwt-token'),
+      localId: localStorage.getItem('local-id'),
     }
   },
   mutations: {
@@ -14,9 +15,15 @@ export default {
       state.token = token
       localStorage.setItem('jwt-token', token)
     },
+    setLocalId(state, localId) {
+      state.localId = localId
+      localStorage.setItem('local-id', localId)
+    },
     logout(state) {
       state.token = null
+      state.localId = null
       localStorage.removeItem('jwt-token')
+      localStorage.removeItem('local-id')
     },
   },
   actions: {
@@ -29,6 +36,7 @@ export default {
           returnSecureToken: true,
         })
         commit('setToken', data.idToken)
+        commit('setLocalId', data.localId)
       } catch (e) {
         store.dispatch('message/setMessage', {
           title: 'ошибка',
@@ -45,9 +53,9 @@ export default {
           returnSecureToken: true,
         })
         commit('setToken', data.idToken)
-        console.log(payload)
-        await axios.post(
-          `https://online-store-vue-default-rtdb.firebaseio.com/${data.localId}/name.json?auth=${data.idToken}`,
+        commit('setLocalId', data.localId)
+        await axios.put(
+          `https://online-store-vue-default-rtdb.firebaseio.com/${data.localId}.json?auth=${data.idToken}`,
           { name: payload.name }
         )
       } catch (e) {
@@ -61,6 +69,9 @@ export default {
   getters: {
     token(state) {
       return state.token
+    },
+    localId(state) {
+      return state.localId
     },
     isAuthenticated(_, getters) {
       return !!getters.token

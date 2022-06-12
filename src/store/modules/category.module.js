@@ -17,28 +17,30 @@ export default {
     },
   },
   actions: {
-    async loadCategory({ commit }) {
-      const { data } = await axios.get(
-        'https://fakestoreapi.com/products/categories'
-      )
-      commit(
-        'setCategory',
-        data.map((e) => {
-          let categoryImg
-          if (e === 'electronics') {
-            categoryImg = 'elec'
-          } else if (e === 'jewelery') {
-            categoryImg = 'jew'
-          } else if (e === `men's clothing`) {
-            categoryImg = 'men'
-          } else if (e === `women's clothing`) {
-            categoryImg = 'women'
-          } else {
-            return
-          }
-          return { name: e, categoryImg }
-        })
-      )
+    async loadCategory({ commit, state }) {
+      if (state.categoryList.length === 0) {
+        const { data } = await axios.get(
+          'https://fakestoreapi.com/products/categories'
+        )
+        commit(
+          'setCategory',
+          data.map((e) => {
+            let categoryImg
+            if (e === 'electronics') {
+              categoryImg = 'elec'
+            } else if (e === 'jewelery') {
+              categoryImg = 'jew'
+            } else if (e === `men's clothing`) {
+              categoryImg = 'men'
+            } else if (e === `women's clothing`) {
+              categoryImg = 'women'
+            } else {
+              return
+            }
+            return { name: e, categoryImg }
+          })
+        )
+      }
     },
     async loadByCategory({ commit }, payload) {
       commit('setSelectedCategory', payload)

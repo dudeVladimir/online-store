@@ -4,6 +4,8 @@ import thing from './modules/thing.module'
 import category from './modules/category.module'
 import auth from './modules/auth.module'
 import message from './modules/message.module'
+import acc from './modules/acc.module'
+import cart from './modules/cart.module'
 
 const plugins = []
 
@@ -29,9 +31,13 @@ export default createStore({
     },
   },
   actions: {
-    async loadThings({ commit }) {
-      const { data } = await axios.get('https://fakestoreapi.com/products')
-      commit('setThings', data)
+    async loadThings({ commit, state }) {
+      if (state.things.length === 0) {
+        const { data } = await axios.get('https://fakestoreapi.com/products')
+        if (data) {
+          commit('setThings', data)
+        }
+      }
     },
   },
   modules: {
@@ -39,5 +45,7 @@ export default createStore({
     category,
     auth,
     message,
+    acc,
+    cart,
   },
 })
