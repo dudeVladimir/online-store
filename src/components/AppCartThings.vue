@@ -27,7 +27,11 @@
         Общая сумма:
         <span class="order-result__price_count">{{ totalPrice }} $</span>
       </div>
-      <AppButton value="Оформить заказ" :isSubmit="true" />
+      <AppButton
+        value="Оформить заказ"
+        :isSubmit="true"
+        :isDisabled="aError || pError || isSubmitting"
+      />
     </form>
     <transition-group tag="ul" name="list" class="cart">
       <li
@@ -105,6 +109,7 @@ export default {
         .trim()
         .min(11, 'Минимальное количество символов - 11')
         .required('Это поле обязательно!')
+        .max(12, 'Максимальное количество символов - 12')
     )
 
     const totalPrice = computed(() => store.getters['cart/totalPrice'])
@@ -114,6 +119,7 @@ export default {
         ...values,
         date: new Date().toLocaleString(),
         order: JSON.parse(localStorage.getItem('order')),
+        totalPrice: totalPrice.value,
       })
     })
 
@@ -127,6 +133,7 @@ export default {
       aError,
       aBlur,
       onSubmit,
+      isSubmitting,
     }
   },
   components: { AppButton },

@@ -1,6 +1,7 @@
 import store from '..'
 import axios from 'axios'
 import { error } from './../../utils/error'
+import router from './../../router/index'
 
 export default {
   namespaced: true,
@@ -54,8 +55,9 @@ export default {
       } catch (e) {
         store.dispatch('message/setMessage', {
           title: 'ошибка',
-          body: error(e.response.data.error.message),
+          body: error(e.response.data.error),
         })
+        router.push('/auth')
       }
     },
   },

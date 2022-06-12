@@ -6,6 +6,7 @@ header {
   position: fixed;
   top: 0;
   left: 0;
+  right: 0;
   width: 100%;
 
   .header__nav {
@@ -32,6 +33,7 @@ header {
       margin-left: 10px;
       color: white;
       text-decoration: none;
+      position: relative;
 
       &.active {
         border-bottom: 1px solid #eee;
@@ -41,5 +43,86 @@ header {
         color: rgba(255, 255, 255, 0.7);
       }
     }
+  }
+}
+
+.mobile {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: $blue-color;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  a {
+    position: relative;
+    display: block;
+    width: 42px;
+    height: 42px;
+    padding: 7px;
+    border-radius: 50%;
+
+    .nav__count {
+      z-index: 500;
+      background: #fff;
+      color: #5e5e5e;
+      padding: 3px 7px;
+      top: 2px;
+      right: 8px;
+    }
+
+    #cart {
+      left: -1px;
+      top: 2px;
+      position: relative;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+
+    &.active {
+      background: rgba(255, 255, 255, 0.3);
+    }
+
+    &:hover {
+      color: rgba(255, 255, 255, 0.7);
+    }
+  }
+}
+
+.nav__count {
+  font-size: 16px;
+  color: white;
+  position: absolute;
+  top: -17px;
+  right: -15px;
+  padding: 5px 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+@media (max-width: 500px) {
+  body {
+    padding-bottom: 60px;
+  }
+  .header__nav {
+    h3 {
+      font-size: 20px;
+    }
+
+    .header__link {
+      display: none !important;
+    }
+  }
+}
+
+@media (min-width: 501px) {
+  .mobile {
+    display: none;
   }
 }

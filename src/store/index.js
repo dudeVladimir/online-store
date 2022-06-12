@@ -32,11 +32,9 @@ export default createStore({
   },
   actions: {
     async loadThings({ commit, state }) {
-      if (state.things.length === 0) {
-        const { data } = await axios.get('https://fakestoreapi.com/products')
-        if (data) {
-          commit('setThings', data)
-        }
+      const { data } = await axios.get('https://fakestoreapi.com/products')
+      if (data) {
+        commit('setThings', data)
       }
     },
   },

@@ -1,5 +1,7 @@
 import axios from 'axios'
 import store from '..'
+import router from './../../router/index'
+import { error } from './../../utils/error'
 
 export default {
   namespaced: true,
@@ -16,15 +18,32 @@ export default {
   },
   actions: {
     async loadAccInfo({ commit }) {
-      const { data } = await axios.get(
-        `https://online-store-vue-default-rtdb.firebaseio.com/${store.getters['auth/localId']}.json?auth=${store.getters['auth/token']}`
-      )
-      commit('setAcc', data)
+      try {
+        const { data } = await axios.get(
+          `https://online-store-vue-default-rtdb.firebaseio.com/${store.getters['auth/localId']}.json?auth=${store.getters['auth/token']}`
+        )
+        commit('setAcc', data)
+      } catch (e) {
+        router.push('/auth')
+        store.dispatch('message/setMessage', {
+          title: 'ошибка',
+          body: error(e.response.data.error),
+        })
+      }
     },
   },
   getters: {
     acc(state) {
       return state.acc
+    },
+    orders(state) {
+      if (state.acc.orders) {
+        return Object.keys(state.acc.orders).map((key) => {
+          return { id: key, ...state.acc.orders[key] }
+        })
+      } else {
+        return null
+      }
     },
   },
 }

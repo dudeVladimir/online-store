@@ -86,3 +86,21 @@
     }
   }
 }
+
+@media (max-width: 350px) {
+  .thing-by-id {
+    &__footer {
+      flex-direction: column !important;
+      * {
+        margin-bottom: 10px !important;
+      }
+      button {
+        font-size: 12px;
+      }
+      .thing-by-id__price {
+        font-size: 14px !important;
+        margin: 0 !important;
+      }
+    }
+  }
+}

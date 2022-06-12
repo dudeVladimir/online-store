@@ -78,3 +78,14 @@ form {
     }
   }
 }
+
+@media (max-width: 400px) {
+  .auth-form {
+    &__btn-box {
+      flex-direction: column;
+      button {
+        margin-bottom: 10px;
+      }
+    }
+  }
+}

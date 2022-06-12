@@ -58,6 +58,10 @@ export default {
           `https://online-store-vue-default-rtdb.firebaseio.com/${data.localId}.json?auth=${data.idToken}`,
           { name: payload.name }
         )
+        store.dispatch('message/setMessage', {
+          title: 'успешно',
+          body: 'Аккаунт успешно зарегистрирован',
+        })
       } catch (e) {
         store.dispatch('message/setMessage', {
           title: 'ошибка',

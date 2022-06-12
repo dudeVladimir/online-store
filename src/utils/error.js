@@ -5,7 +5,8 @@ const ERROR_CODES = {
   EMAIL_EXISTS: 'Адрес электронной почты уже используется другим аккаунтом',
   TOO_MANY_ATTEMPTS_TRY_LATER:
     'Мы заблокировали все запросы с этого устройства из-за необычной активности. Попробуйте позже.',
-  auth: 'Необходимо авторизоваться',
+  'Auth token is expired': 'Необходимо авторизоваться',
+  'Could not parse auth token.': 'Необходимо авторизоваться',
 }
 
 export function error(code) {

@@ -89,3 +89,12 @@
     }
   }
 }
+
+@media (max-width: 470px) {
+  .order-result {
+    .cart__item {
+      height: auto;
+      flex-direction: column;
+    }
+  }
+}

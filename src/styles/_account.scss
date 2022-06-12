@@ -1,0 +1,88 @@
+.account {
+  &__info {
+    margin-bottom: 10px;
+
+    .name {
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+  }
+
+  &__orders {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    gap: 10px;
+
+    .account__order {
+      padding: 10px;
+      background: #fff;
+      border-radius: 10px;
+      span {
+        display: block;
+        margin-bottom: 10px;
+      }
+
+      .order__price {
+        display: inline;
+        color: $blue-color;
+        font-weight: bolder;
+        font-size: 1.5rem;
+      }
+
+      .account__items {
+        border-top: 1px solid #5e5e5e;
+        padding-top: 10px;
+
+        .account__item {
+          display: flex;
+          align-items: center;
+          font-size: 12px;
+          margin-bottom: 10px;
+
+          img {
+            object-fit: cover;
+            max-width: 50px;
+            max-height: 50px;
+          }
+
+          span {
+            padding-left: 7px;
+            margin: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1600px) {
+  .account {
+    &__orders {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .account {
+    &__orders {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
+}
+
+@media (max-width: 850px) {
+  .account {
+    &__orders {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .account {
+    &__orders {
+      grid-template-columns: 1fr;
+    }
+  }
+}

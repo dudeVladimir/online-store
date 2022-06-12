@@ -1,8 +1,9 @@
 <template>
   <teleport to="body">
     <header>
-      <TheNavbar></TheNavbar>
+      <TheNavbar />
     </header>
+    <MobileNavbar />
   </teleport>
   <main>
     <AppMessage />
@@ -13,8 +14,9 @@
 <script>
 import TheNavbar from './components/TheNavbar.vue'
 import AppMessage from './components/UI/AppMessage.vue'
+import MobileNavbar from './components/MobileNavbar.vue'
 
 export default {
-  components: { TheNavbar, AppMessage },
+  components: { TheNavbar, AppMessage, MobileNavbar },
 }
 </script>
